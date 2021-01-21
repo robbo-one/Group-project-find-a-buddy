@@ -49,6 +49,7 @@ router.get('/profilePage/:id', (req, res) => {
 
   db.getAllFromUser(id)
   .then((user) => {
+    console.log(user)
 		res.render('profilePage', {user: user});
 	});
 });
