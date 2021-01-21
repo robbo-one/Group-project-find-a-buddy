@@ -1,6 +1,9 @@
 <h1>Welcome to the Results Page!</h1>
 <div>
   {{#each results}}
-    <p> {{name}} {{bird}} {{character}} {{country}} {{superpower}}</p>
+    <p>
+      My name is:<a href="/profilePage/{{user_id}}"> {{name}}</a>  {{bird}} {{character}} {{country}} {{superpower}}
+    </p>
   {{/each}}
 </div>
+ <a class="button" href="/">Home</a>
