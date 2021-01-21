@@ -57,6 +57,15 @@ router.get('/profilePage/:id', (req, res) => {
 	});
 });
 
+
+router.get("/seetheresults", (req, res) => {
+  db.getAllResults()
+  .then((results) => {
+    console.log(results)
+    res.render("see_results", {results: results});
+  })
+});
+
 router.get('/makeyourchoice', (req, res) => {
 res.render('makeyourchoice', {})
 })

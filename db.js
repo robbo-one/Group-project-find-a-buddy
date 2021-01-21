@@ -10,7 +10,8 @@ module.exports = {
   addFavCharacter: addFavCharacter,
   addFavCountry: addFavCountry,
   addFavSuperPower: addFavSuperPower,
-  getAllFromUser: getAllFromUser
+  getAllFromUser: getAllFromUser,
+  getAllResults: getAllResults
 }
 
 function getUsers (db = connection) {
@@ -55,3 +56,13 @@ function getAllFromUser(id, db = connection) {
   .where("userid", id)
   .select("*", "users.id AS userid")
 }
+
+function getAllResults(db = connection) {
+  return db("users")
+  .join('fav_bird', "users.id", "fav_bird.user_id" )
+  .join("fav_character","users.id", "fav_character.user_id")
+  .join("fav_countries","users.id", "fav_countries.user_id")
+  .join("superpower","users.id", "superpower.user_id")
+  .select("*", "users.id AS userid")
+}
+
