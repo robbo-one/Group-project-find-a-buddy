@@ -19,6 +19,13 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.indecisiveForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+}
+
 .welcome {
   text-align: center;
   color: black;

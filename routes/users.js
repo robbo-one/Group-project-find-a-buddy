@@ -47,7 +47,8 @@ router.post('/imFeelingIndecisive', (req, res) => {
 });
 
 router.get('/profilePage/:id', (req, res) => {
-	let id = req.params.id;
+  let id = req.params.id;
+  
 
   db.getAllFromUser(id)
   .then((user) => {
@@ -56,6 +57,7 @@ router.get('/profilePage/:id', (req, res) => {
 	});
 });
 
+
 router.get("/seetheresults", (req, res) => {
   db.getAllResults()
   .then((results) => {
@@ -63,5 +65,35 @@ router.get("/seetheresults", (req, res) => {
     res.render("see_results", {results: results});
   })
 });
+
+router.get('/makeyourchoice', (req, res) => {
+res.render('makeyourchoice', {})
+})
+
+router.post('/makeyourchoice', (req, res) => {
+  let user = {
+		name: req.body.name,
+		fav_bird: req.body.fav_bird,
+		fav_character: req.body.fav_character,
+		fav_countries: req.body.fav_countries,
+		superpower: req.body.superpower,
+  };
+  db.addUser(user.name).then((result1) => {
+    db.addFavBird(user.fav_bird, result1[0])
+    .then(() => {
+      db.addFavCharacter(user.fav_character, result1[0])
+      .then(() => {
+        db.addFavCountry(user.fav_countries, result1[0])
+        .then(() => {
+          db.addFavSuperPower(user.superpower, result1[0])
+          .then(() => {});
+          console.log(result1[0])
+          res.redirect('/profilePage/' + result1[0]);
+				});
+			});
+		});
+	});
+});
+
 
 module.exports = router;
