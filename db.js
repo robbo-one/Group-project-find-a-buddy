@@ -11,7 +11,8 @@ module.exports = {
   addFavCountry: addFavCountry,
   addFavSuperPower: addFavSuperPower,
   getAllFromUser: getAllFromUser,
-  getAllResults: getAllResults
+  getAllResults: getAllResults,
+  noDupes: noDupes
 }
 
 function getUsers (db = connection) {
@@ -64,5 +65,26 @@ function getAllResults(db = connection) {
   .join("fav_countries","users.id", "fav_countries.user_id")
   .join("superpower","users.id", "superpower.user_id")
   .select("*", "users.id AS userid")
+}
+
+function noDupes(result) {
+  //make an array
+    //object
+      //birds
+    //objects
+      //characters
+
+  for(let i = 0; i<result.length; i++) {
+    let bird = result[i].bird
+    console.log(bird)
+    let country = result[i].country
+    console.log(bird)
+    let character = result[i].character
+    console.log(bird)
+    let superpower = result[i].superpower
+    console.log(bird)
+  }
+  
+  return result
 }
 
