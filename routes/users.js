@@ -67,7 +67,14 @@ router.get("/seetheresults", (req, res) => {
 });
 
 router.get('/makeyourchoice', (req, res) => {
-res.render('makeyourchoice', {})
+db.getAllResults()
+.then((result) => {
+  console.log(result)
+  // let result1 = db.noDupes(result)
+  res.render('makeyourchoice', {result: result})
+
+})
+
 })
 
 router.post('/makeyourchoice', (req, res) => {
