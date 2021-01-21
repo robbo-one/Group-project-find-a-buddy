@@ -49,7 +49,7 @@ router.get('/profilePage/:id', (req, res) => {
 
   db.getAllFromUser(id)
   .then((user) => {
-		res.render('profilePage', user);
+		res.render('profilePage', {user: user});
 	});
 });
 
