@@ -56,4 +56,12 @@ router.get('/profilePage/:id', (req, res) => {
 	});
 });
 
+router.get("/seetheresults", (req, res) => {
+  db.getAllResults()
+  .then((results) => {
+    console.log(results)
+    res.render("see_results", {results: results});
+  })
+});
+
 module.exports = router;
