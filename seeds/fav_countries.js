@@ -1,10 +1,10 @@
 exports.seed = function (knex) {
 	// Deletes ALL existing entries
-	return knex('table_name')
+	return knex('fav_countries')
 		.del()
 		.then(function () {
 			// Inserts seed entries
-			return knex('table_name').insert([
+			return knex('fav_countries').insert([
 				{ user_id: 99901, country: 'New Zealand' },
 				{ user_id: 99902, country: 'New Zealand' },
 				{ user_id: 99903, country: 'New Zealand' },
