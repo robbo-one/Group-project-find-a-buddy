@@ -69,9 +69,12 @@ router.get("/seetheresults", (req, res) => {
 router.get('/makeyourchoice', (req, res) => {
 db.getAllResults()
 .then((result) => {
-  console.log(result)
-  // let result1 = db.noDupes(result)
-  res.render('makeyourchoice', {result: result})
+  // console.log(result)
+  // let result1 = 
+  // console.log(result)
+    let object = db.noDupes(result)
+    // console.log(object.birds)
+  res.render('makeyourchoice', {object})
 
 })
 
@@ -80,11 +83,12 @@ db.getAllResults()
 router.post('/makeyourchoice', (req, res) => {
   let user = {
 		name: req.body.name,
-		fav_bird: req.body.fav_bird,
+		fav_bird: req.body.fav_birds,
 		fav_character: req.body.fav_character,
 		fav_countries: req.body.fav_countries,
 		superpower: req.body.superpower,
   };
+  
   db.addUser(user.name).then((result1) => {
     db.addFavBird(user.fav_bird, result1[0])
     .then(() => {
