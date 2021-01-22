@@ -102,5 +102,35 @@ router.post('/makeyourchoice', (req, res) => {
 	});
 });
 
+router.get('/matches/:id', (req, res) => {
+  let id = req.params.id
+
+  let person = {
+    bird: "",
+    country: "",
+    character: "",
+    superpower: "",
+  }
+  // let match = []
+
+  db.getAllFromUser(id)
+  .then((user) => {
+    person = user
+    // console.log(person)
+    db.findBird(person[0].bird)
+    .then((results) => {
+      console.log(results)
+      // match = match.map((item) => {
+      //   return item
+      // })
+      // match.push({...results})
+      // console.log(match)
+      // console.log(match[0][0])
+      res.render("matches", { results })
+    })
+  })
+})
+
+
 
 module.exports = router;

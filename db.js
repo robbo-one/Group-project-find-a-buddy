@@ -12,7 +12,9 @@ module.exports = {
   addFavSuperPower: addFavSuperPower,
   getAllFromUser: getAllFromUser,
   getAllResults: getAllResults,
-  noDupes: noDupes
+  noDupes: noDupes,
+  findBird: findBird,
+  // findCountry: findCountry
 }
 
 function getUsers (db = connection) {
@@ -66,6 +68,28 @@ function getAllResults(db = connection) {
   .join("superpower","users.id", "superpower.user_id")
   .select("*", "users.id AS userid")
 }
+
+function findBird(keyword, db = connection) {
+  // console.log(keyword)
+  return db('fav_bird')
+  .select('*')
+  .where('bird', "like" ,"%" + keyword + "%")
+  .join('users','users.id', 'fav_bird.user_id')
+  .catch(e => {
+    console.log(e)
+  })
+}
+
+// function findCountry(keyword, db = connection) {
+//   // console.log(keyword)
+//   return db('fav_country')
+//   .select('*')
+//   .where('country', "like" ,"%" + keyword + "%")
+//   .join('users','users.id', 'ffav_contry.user_id')
+//   .catch(e => {
+//     console.log(e)
+//   })
+// }
 
 function noDupes(result) {
   //make an array
