@@ -4,31 +4,31 @@
   <form class="indecisiveForm" method="POST">
   <input type="text" name="name" placeholder="Name">
   <br>
-  <select name="Name">
+  <select name="fav_birds">
     <option value="">Favourite bird</option>
-    {{#each result}}
-      <option  value="{{id}}">{{bird}}</option>
+    {{#each object.birds}}
+      <option value="{{this}}">{{this}}</option>
     {{/each}}
   </select>
   <br>
-  <select name="bird">
-    <option value="">Favourite Character</option>
-    {{#each result}}
-      <option value="{{id}}">{{character}}</option>
+  <select name="fav_character">
+    <option value="fav_character">Favourite Character</option>
+    {{#each object.character}}
+      <option value="{{this}}">{{this}}</option>
     {{/each}}
   </select>
   <br>
-  <select name="Name">
+  <select name="fav_country">
     <option value="">Favourite Country</option>
-    {{#each result}}
-      <option value="{{id}}">{{country}}</option>
+    {{#each object.countries}}
+      <option value="{{this}}">{{this}}</option>
     {{/each}}
   </select>
   <br>
-   <select name="Name">
+   <select name="superpower">
     <option value="">Superpower</option>
-    {{#each result}}
-      <option value="{{id}}">{{superpower}}</option>
+    {{#each object.superpower}}
+      <option value="{{this}}">{{this}}</option>
     {{/each}}
   </select>
   <br>

@@ -67,24 +67,37 @@ function getAllResults(db = connection) {
   .select("*", "users.id AS userid")
 }
 
-function noDupes(result) {
-  //make an array
-    //object
-      //birds
-    //objects
-      //characters
+function noDupes(results) {
+   
+  let birds = results.map(result => result.bird)
+  birds = new Set(birds)
+  birds = [...birds]
+  // console.log(birds)
 
-  for(let i = 0; i<result.length; i++) {
-    let bird = result[i].bird
-    console.log(bird)
-    let country = result[i].country
-    console.log(bird)
-    let character = result[i].character
-    console.log(bird)
-    let superpower = result[i].superpower
-    console.log(bird)
-  }
+  let countries = results.map(result => result.country)
+  countries = new Set(countries)
+  countries = [...countries]
+  // console.log(birds)
+
+  let character = results.map(result => result.character)
+  character = new Set(character)
+  character = [...character]
+  // console.log(birds)
+
+  let superpower = results.map(result => result.superpower)
+  superpower = new Set(superpower)
+  superpower = [...superpower]
+  // console.log(birds)
+
+  let object = {birds: birds, countries: countries, character: character, superpower: superpower}
+
   
-  return result
+  return object
 }
 
+// const birdIsntThere = (allEntries, i) => allEntries.some(oneEntry =>  {
+//   // console.log(item.bird)
+//   // console.log(result[i])
+//   const current = allEntries[i]
+//   return current.bird !== oneEntry.bird
+// })
