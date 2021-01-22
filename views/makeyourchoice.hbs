@@ -1,12 +1,13 @@
-<h1>Make your choice<h1>
-
+<body class="choice" >
+<h1>Choose from the menu below.....</h1>
+<a class="homeButton" href="/">Home</a>
   <form class="indecisiveForm" method="POST">
   <input type="text" name="name" placeholder="Name">
   <br>
   <select name="Name">
     <option value="">Favourite bird</option>
     {{#each result}}
-      <option value="{{id}}">{{bird}}</option>
+      <option  value="{{id}}">{{bird}}</option>
     {{/each}}
   </select>
   <br>
@@ -33,4 +34,5 @@
   <br>
   <input type="submit">
 </form>
- <a class="button" href="/">Home</a>
+ 
+</body>

@@ -1,9 +1,12 @@
-<h1>Welcome to the Results Page!</h1>
+<body class="resultsBody">
+   <a class="button" href="/">Home</a>
+    <h1 id="h1Results"> Welcome to the Results Page!</h1>
 <div>
   {{#each results}}
     <p>
-      <a href="/profilePage/{{user_id}}">{{name}}</a>  {{bird}} {{character}} {{country}} {{superpower}}
+     Hello Everyone it's a pleasure to meet you my name is <a href="/profilePage/{{user_id}}">{{name}}</a>. I once ate a {{bird}}. In my spare time I dress up as {{character}}. My least favourite country is {{country}}. If I had a super power it would be {{superpower}}, I would use for evil not good. Cheers.
     </p>
   {{/each}}
 </div>
- <a class="button" href="/">Home</a>
+
+ </body>
